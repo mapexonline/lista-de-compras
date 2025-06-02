@@ -21,7 +21,6 @@ const produtosPadrao = [
   "1 bandeja de orelha de porco",
   "Suco",
   "3 unidades de leite",
-  "Manteiga",
   "MISTURA DA SEMANA",
   "DESINFETANTE-ROGERIO"
 ];
