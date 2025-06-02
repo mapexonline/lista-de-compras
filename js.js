@@ -20,7 +20,7 @@ const produtosPadrao = [
   "2 pacotes de bacon",
   "1 bandeja de orelha de porco",
   "Suco",
-  "3 unidades de leite",
+  "MORTADELA",
   "MISTURA DA SEMANA",
   "DESINFETANTE-ROGERIO"
 ];
