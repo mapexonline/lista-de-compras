@@ -19,7 +19,7 @@ const produtosPadrao = [
   "1 quilo de costelinha de porco",
   "2 pacotes de bacon",
   "1 bandeja de orelha de porco",
-  "CANDIDA",
+  "KIT BANHEIRO ROGERIO",
   "MORTADELA",
   "MISTURA DA SEMANA",
   "DESINFETANTE-ROGERIO"
