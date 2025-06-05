@@ -18,44 +18,45 @@ const produtosPadrao = [
   "3 quilos de sobrecoxa",
   "1 quilo de costelinha de porco",
   "2 pacotes de bacon",
-  "1 bandeja de orelha de porco",
+  "CAFÉ",
   "KIT BANHEIRO ROGERIO",
   "MORTADELA",
   "MISTURA DA SEMANA",
-  "DESINFETANTE-ROGERIO"
+  "DESINFETANTE-ROGERIO",
 ];
 
-let produtos = JSON.parse(localStorage.getItem('produtos')) || produtosPadrao.slice();
+let produtos =
+  JSON.parse(localStorage.getItem("produtos")) || produtosPadrao.slice();
 
-const listaEl = document.getElementById('lista');
-const contadorEl = document.getElementById('contador');
+const listaEl = document.getElementById("lista");
+const contadorEl = document.getElementById("contador");
 
 function carregarLista() {
-  const salvos = JSON.parse(localStorage.getItem('itensMarcados') || '[]');
-  listaEl.innerHTML = '';
+  const salvos = JSON.parse(localStorage.getItem("itensMarcados") || "[]");
+  listaEl.innerHTML = "";
 
   produtos.forEach((produto, i) => {
-    const li = document.createElement('li');
-    li.className = 'item';
+    const li = document.createElement("li");
+    li.className = "item";
     if (salvos.includes(i)) {
-      li.classList.add('checked');
+      li.classList.add("checked");
     }
 
-    const spanProduto = document.createElement('span');
+    const spanProduto = document.createElement("span");
     spanProduto.textContent = produto;
-    spanProduto.style.flexGrow = '1';
+    spanProduto.style.flexGrow = "1";
 
-    const btnEditar = document.createElement('button');
-    btnEditar.textContent = 'Editar';
-    btnEditar.className = 'editar-btn';
+    const btnEditar = document.createElement("button");
+    btnEditar.textContent = "Editar";
+    btnEditar.className = "editar-btn";
     btnEditar.onclick = (event) => {
       event.stopPropagation();
       editarProduto(i);
     };
 
-    const btnDeletar = document.createElement('button');
-    btnDeletar.textContent = '❌';
-    btnDeletar.className = 'deletar-btn';
+    const btnDeletar = document.createElement("button");
+    btnDeletar.textContent = "❌";
+    btnDeletar.className = "deletar-btn";
     btnDeletar.onclick = (event) => {
       event.stopPropagation();
       deletarProduto(i);
@@ -73,13 +74,13 @@ function carregarLista() {
 }
 
 function marcarItem(index) {
-  let salvos = JSON.parse(localStorage.getItem('itensMarcados') || '[]');
+  let salvos = JSON.parse(localStorage.getItem("itensMarcados") || "[]");
   if (salvos.includes(index)) {
-    salvos = salvos.filter(i => i !== index);
+    salvos = salvos.filter((i) => i !== index);
   } else {
     salvos.push(index);
   }
-  localStorage.setItem('itensMarcados', JSON.stringify(salvos));
+  localStorage.setItem("itensMarcados", JSON.stringify(salvos));
   carregarLista();
 }
 
@@ -90,40 +91,42 @@ function atualizarContador(marcados) {
 }
 
 function resetarLista() {
-  localStorage.removeItem('itensMarcados');
-  localStorage.removeItem('produtos');
+  localStorage.removeItem("itensMarcados");
+  localStorage.removeItem("produtos");
   produtos = produtosPadrao.slice();
   carregarLista();
 }
 
 function editarProduto(index) {
-  const novoProduto = prompt('Digite o novo nome do produto:', produtos[index]);
-  if (novoProduto !== null && novoProduto.trim() !== '') {
+  const novoProduto = prompt("Digite o novo nome do produto:", produtos[index]);
+  if (novoProduto !== null && novoProduto.trim() !== "") {
     produtos[index] = novoProduto.trim();
-    localStorage.setItem('produtos', JSON.stringify(produtos));
+    localStorage.setItem("produtos", JSON.stringify(produtos));
     carregarLista();
   }
 }
 
 function deletarProduto(index) {
-  if (confirm('Tem certeza que deseja deletar este produto?')) {
+  if (confirm("Tem certeza que deseja deletar este produto?")) {
     produtos.splice(index, 1);
-    localStorage.setItem('produtos', JSON.stringify(produtos));
-    
+    localStorage.setItem("produtos", JSON.stringify(produtos));
+
     // Também remover do "itensMarcados" se estava marcado
-    let salvos = JSON.parse(localStorage.getItem('itensMarcados') || '[]');
-    salvos = salvos.filter(i => i !== index).map(i => i > index ? i - 1 : i);
-    localStorage.setItem('itensMarcados', JSON.stringify(salvos));
-    
+    let salvos = JSON.parse(localStorage.getItem("itensMarcados") || "[]");
+    salvos = salvos
+      .filter((i) => i !== index)
+      .map((i) => (i > index ? i - 1 : i));
+    localStorage.setItem("itensMarcados", JSON.stringify(salvos));
+
     carregarLista();
   }
 }
 
 function adicionarProduto() {
-  const novoProduto = prompt('Digite o nome do novo produto:');
-  if (novoProduto !== null && novoProduto.trim() !== '') {
+  const novoProduto = prompt("Digite o nome do novo produto:");
+  if (novoProduto !== null && novoProduto.trim() !== "") {
     produtos.push(novoProduto.trim());
-    localStorage.setItem('produtos', JSON.stringify(produtos));
+    localStorage.setItem("produtos", JSON.stringify(produtos));
     carregarLista();
   }
 }
