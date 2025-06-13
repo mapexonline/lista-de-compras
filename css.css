@@ -1,9 +1,9 @@
 /* 🎨 Variáveis de cores para fácil modificação */
 :root {
-  --cor-fundo: #87CEEB;
+  --cor-fundo: #87ceeb;
   --cor-texto: #333;
-  --cor-header: #87CEEB;
-  --cor-footer: #B0C4DE;
+  --cor-header: #87ceeb;
+  --cor-footer: #b0c4de;
   --cor-item: #ffffff;
   --cor-item-checked: #c8e6c9;
   --cor-item-hover: #e0e0e0;
@@ -84,7 +84,7 @@ body {
   background-color: #c9f398;
   border: none;
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s, box-shadow 0.3s;
   margin-bottom: 10px; /* espaço extra entre botões */
 }
@@ -93,7 +93,7 @@ body {
   background-color: #d1f7a1;
   color: white;
   cursor: pointer;
-  box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
 }
 
 /* 📌 Rodapé */
@@ -177,4 +177,11 @@ body {
 
 .deletar-btn:hover {
   background-color: #ff8080;
+}
+#lista-section h3 {
+  margin-top: 20px;
+  font-size: 1.2em;
+  color: #444;
+  border-bottom: 1px solid #aaa;
+  padding-bottom: 5px;
 }

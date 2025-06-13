@@ -1,134 +1,127 @@
-// Obter produtos do localStorage ou usar padrão inicial
-const produtosPadrao = [
-  "1 pacote de arroz",
-  "2 pacotes de café",
-  "2 quilos de trigo",
-  "2 pacotes de feijão",
-  "1 pacote de feijão preto",
-  "3 quilos de açúcar",
-  "2 unidades de óleo",
-  "2 maços de tomate",
-  "1 quilo de cebola",
-  "3 quilos de batata",
-  "3 abobrinhas",
-  "5 tomates",
-  "4 batatas doces",
-  "1 quilo de linguiça",
-  "1 quilo de carne moída",
-  "3 quilos de sobrecoxa",
-  "ESCOVAS DE DENTE",
-  "3 CAIXAS DE LEITE",
-  "CAFÉ",
-  "KIT BANHEIRO ROGERIO",
-  "MORTADELA",
-  "MISTURA DA SEMANA",
-  "DESINFETANTE-ROGERIO",
-];
+const categorias = {
+  "Produtos de Limpeza": [
+    "1 sabão em pó",
+    "1 desinfetante",
+    "2 detergentes",
+    "1 cândida",
+    "1 amaciante",
+    "Papel toalha",
+    "Papel higiênico",
+    "4 sabonetes",
+  ],
+  "Legumes / Verduras": [
+    "3 kg de batatas",
+    "4 cenouras",
+    "2 pimentões",
+    "2 maços de alface",
+    "5 tomates",
+  ],
+  "Alimentos Básicos / Secos": [
+    "2 dúzias de ovos",
+    "2 pacotes de arroz",
+    "5 kg de açúcar",
+    "3 litros de óleo",
+    "2 pacotes de café",
+    "1 pote de alho",
+    "1 kg de sal",
+    "2 massas de tomate",
+    "2 kg de feijão",
+    "1 kg de feijão preto",
+    "2 macarrão Ave Maria",
+  ],
+  "Laticínios / Derivados": [
+    "3 caixinhas de leite",
+    "2 latas de leite condensado",
+  ],
+  "Padaria / Diversos": ["1 pão sovado"],
+  Outros: ["Gás"],
+};
 
-let produtos =
-  JSON.parse(localStorage.getItem("produtos")) || produtosPadrao.slice();
-
-const listaEl = document.getElementById("lista");
-const contadorEl = document.getElementById("contador");
+let produtosMarcados = JSON.parse(localStorage.getItem("itensMarcados")) || [];
 
 function carregarLista() {
-  const salvos = JSON.parse(localStorage.getItem("itensMarcados") || "[]");
+  const listaEl = document.getElementById("lista");
   listaEl.innerHTML = "";
 
-  produtos.forEach((produto, i) => {
-    const li = document.createElement("li");
-    li.className = "item";
-    if (salvos.includes(i)) {
-      li.classList.add("checked");
-    }
+  let total = 0;
+  let marcados = 0;
 
-    const spanProduto = document.createElement("span");
-    spanProduto.textContent = produto;
-    spanProduto.style.flexGrow = "1";
+  Object.entries(categorias).forEach(([categoria, itens]) => {
+    const titulo = document.createElement("h3");
+    titulo.textContent = categoria;
+    listaEl.appendChild(titulo);
 
-    const btnEditar = document.createElement("button");
-    btnEditar.textContent = "Editar";
-    btnEditar.className = "editar-btn";
-    btnEditar.onclick = (event) => {
-      event.stopPropagation();
-      editarProduto(i);
-    };
+    const ul = document.createElement("ul");
+    ul.className = "lista";
 
-    const btnDeletar = document.createElement("button");
-    btnDeletar.textContent = "❌";
-    btnDeletar.className = "deletar-btn";
-    btnDeletar.onclick = (event) => {
-      event.stopPropagation();
-      deletarProduto(i);
-    };
+    const marcadosNaCategoria = [];
+    const naoMarcadosNaCategoria = [];
 
-    li.appendChild(spanProduto);
-    li.appendChild(btnEditar);
-    li.appendChild(btnDeletar);
+    itens.forEach((item, i) => {
+      const key = `${categoria}-${item}`;
+      if (produtosMarcados.includes(key)) {
+        marcadosNaCategoria.push(item);
+        marcados++;
+      } else {
+        naoMarcadosNaCategoria.push(item);
+      }
+      total++;
+    });
 
-    li.onclick = () => marcarItem(i);
-    listaEl.appendChild(li);
+    [...naoMarcadosNaCategoria, ...marcadosNaCategoria].forEach((item) => {
+      const key = `${categoria}-${item}`;
+      const li = document.createElement("li");
+      li.className = "item";
+      if (produtosMarcados.includes(key)) li.classList.add("checked");
+
+      li.onclick = () => marcarItem(key);
+
+      const spanProduto = document.createElement("span");
+      spanProduto.textContent = item;
+      spanProduto.style.flexGrow = "1";
+      li.appendChild(spanProduto);
+
+      ul.appendChild(li);
+    });
+
+    listaEl.appendChild(ul);
   });
 
-  atualizarContador(salvos.length);
+  atualizarContador(total - marcados, total);
 }
 
-function marcarItem(index) {
-  let salvos = JSON.parse(localStorage.getItem("itensMarcados") || "[]");
-  if (salvos.includes(index)) {
-    salvos = salvos.filter((i) => i !== index);
+function marcarItem(key) {
+  if (produtosMarcados.includes(key)) {
+    produtosMarcados = produtosMarcados.filter((i) => i !== key);
   } else {
-    salvos.push(index);
+    produtosMarcados.push(key);
   }
-  localStorage.setItem("itensMarcados", JSON.stringify(salvos));
+  localStorage.setItem("itensMarcados", JSON.stringify(produtosMarcados));
   carregarLista();
 }
 
-function atualizarContador(marcados) {
-  const total = produtos.length;
-  const faltam = total - marcados;
-  contadorEl.textContent = `Faltam ${faltam} de ${total} produtos`;
+function atualizarContador(faltam, total) {
+  document.getElementById(
+    "contador"
+  ).textContent = `Faltam ${faltam} de ${total} produtos`;
 }
 
 function resetarLista() {
   localStorage.removeItem("itensMarcados");
-  localStorage.removeItem("produtos");
-  produtos = produtosPadrao.slice();
+  produtosMarcados = [];
   carregarLista();
 }
 
-function editarProduto(index) {
-  const novoProduto = prompt("Digite o novo nome do produto:", produtos[index]);
-  if (novoProduto !== null && novoProduto.trim() !== "") {
-    produtos[index] = novoProduto.trim();
-    localStorage.setItem("produtos", JSON.stringify(produtos));
-    carregarLista();
-  }
-}
-
-function deletarProduto(index) {
-  if (confirm("Tem certeza que deseja deletar este produto?")) {
-    produtos.splice(index, 1);
-    localStorage.setItem("produtos", JSON.stringify(produtos));
-
-    // Também remover do "itensMarcados" se estava marcado
-    let salvos = JSON.parse(localStorage.getItem("itensMarcados") || "[]");
-    salvos = salvos
-      .filter((i) => i !== index)
-      .map((i) => (i > index ? i - 1 : i));
-    localStorage.setItem("itensMarcados", JSON.stringify(salvos));
-
-    carregarLista();
-  }
-}
-
 function adicionarProduto() {
-  const novoProduto = prompt("Digite o nome do novo produto:");
-  if (novoProduto !== null && novoProduto.trim() !== "") {
-    produtos.push(novoProduto.trim());
-    localStorage.setItem("produtos", JSON.stringify(produtos));
-    carregarLista();
-  }
+  const nome = prompt("Digite o nome do novo produto:");
+  if (!nome) return;
+
+  const categoria = prompt("Digite a categoria (existente ou nova):");
+  if (!categoria) return;
+
+  if (!categorias[categoria]) categorias[categoria] = [];
+  categorias[categoria].push(nome.trim());
+  carregarLista();
 }
 
 carregarLista();
