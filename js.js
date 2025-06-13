@@ -34,7 +34,7 @@ const categorias = {
     "2 latas de leite condensado",
   ],
   "Padaria / Diversos": ["1 pão sovado"],
-  Outros: ["Gás"],
+  Outros: ["Gás", "papel toalha"],
 };
 
 let produtosMarcados = JSON.parse(localStorage.getItem("itensMarcados")) || [];
