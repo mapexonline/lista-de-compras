@@ -1,36 +1,14 @@
 const categorias = {
-  "Produtos de Limpeza": [
-    "1 sabão em pó",
-    "1 desinfetante",
-    "2 detergentes",
-    "1 cândida",
-    "1 amaciante",
-    "Papel toalha",
-    "Papel higiênico",
-    "4 sabonetes",
+  Carnes: [
+    "3 kilos de sobrecoxa",
+    "1 kilo de carne moída",
+    "1 kilo de costelinha de porco",
+    "2 pedaços de bacon",
   ],
-
-  "Legumes / Verduras": ["1 KILO DE CEBOLA"],
-
-  "Alimentos Básicos / Secos": [
-    "2 dúzias de ovos",
-    "2 pacotes de arroz",
-    "5 kg de açúcar",
-    "3 litros de óleo",
-    "2 pacotes de café",
-    "1 pote de alho",
-    "1 kg de sal",
-    "2 massas de tomate",
-    "2 kg de feijão",
-    "1 kg de feijão preto",
-    "2 macarrão Ave Maria",
-  ],
-  "Laticínios / Derivados": [
-    "3 caixinhas de leite",
-    "2 latas de leite condensado",
-  ],
-  "Padaria / Diversos": ["1 pão sovado"],
-  Outros: ["Gás", "papel toalha"],
+  "Alimentos Básicos / Secos": ["1 kilo de café"],
+  "Legumes / Verduras": ["1 kilo de cebola"],
+  "Laticínios / Derivados": ["1 pote de manteiga"],
+  "Produtos de Limpeza": ["Limpa vidros para o carro"],
 };
 
 let produtosMarcados = JSON.parse(localStorage.getItem("itensMarcados")) || [];
