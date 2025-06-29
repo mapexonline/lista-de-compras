@@ -9,13 +9,9 @@ const categorias = {
     "Papel higiênico",
     "4 sabonetes",
   ],
-  "Legumes / Verduras": [
-    "3 kg de batatas",
-    "4 cenouras",
-    "2 pimentões",
-    "2 maços de alface",
-    "5 tomates",
-  ],
+
+  "Legumes / Verduras": ["1 KILO DE CEBOLA"],
+
   "Alimentos Básicos / Secos": [
     "2 dúzias de ovos",
     "2 pacotes de arroz",
