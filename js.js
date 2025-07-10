@@ -1,14 +1,9 @@
 const categorias = {
-  Carnes: [
-    "3 kilos de sobrecoxa",
-    "1 kilo de carne moída",
-    "1 kilo de costelinha de porco",
-    "2 pedaços de bacon",
-  ],
-  "Alimentos Básicos / Secos": ["1 kilo de café"],
-  "Legumes / Verduras": ["1 kilo de cebola"],
-  "Laticínios / Derivados": ["1 pote de manteiga"],
-  "Produtos de Limpeza": ["Limpa vidros para o carro"],
+  Carnes: ["SWIFIT"],
+  "Alimentos Básicos / Secos": ["1 PACOTE DE CAFÉ", "3 KILOS DE AÇUCAR"],
+  "Legumes / Verduras": ["4 CENOURAS"],
+  "Produtos de Limpeza": ["2 PANOS DE PRATO", "2 PANOS DE CHAO", "1 RODO"],
+  "Higiene Pessoal": ["PAPEL HIGIENICO"],
 };
 
 let produtosMarcados = JSON.parse(localStorage.getItem("itensMarcados")) || [];
@@ -93,8 +88,12 @@ function adicionarProduto() {
   const categoria = prompt("Digite a categoria (existente ou nova):");
   if (!categoria) return;
 
-  if (!categorias[categoria]) categorias[categoria] = [];
-  categorias[categoria].push(nome.trim());
+  // Deixar em maiúsculo como padrão para manter padronização
+  const nomeMaiusculo = nome.trim().toUpperCase();
+  const categoriaFormatada = categoria.trim();
+
+  if (!categorias[categoriaFormatada]) categorias[categoriaFormatada] = [];
+  categorias[categoriaFormatada].push(nomeMaiusculo);
   carregarLista();
 }
 
