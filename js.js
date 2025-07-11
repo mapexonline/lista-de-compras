@@ -1,11 +1,14 @@
 const categorias = {
   Carnes: [
-    "3 kilos de sobrecoxa",
-    "1 kilo de carne moída",
-    "1 kilo de costelinha de porco",
-    "2 pedaços de bacon",
+    "swifit"
+ 
   ],
-  "Alimentos Básicos / Secos": ["1 kilo de café"],
+  "Alimentos Básicos / Secos": [
+    "1 kilo de café",
+        "3 kilos de açucar"
+    
+                               
+                               ],
   "Legumes / Verduras": ["1 kilo de cebola"],
   "Laticínios / Derivados": ["1 pote de manteiga"],
   "Produtos de Limpeza": ["Limpa vidros para o carro"],
