@@ -1,17 +1,20 @@
 const categorias = {
   Carnes: [
-    "swifit"
- 
+    "comprar mais mistura"
   ],
   "Alimentos Básicos / Secos": [
-    "1 kilo de café",
-        "3 kilos de açucar"
-    
-                               
-                               ],
-  "Legumes / Verduras": ["1 kilo de cebola"],
-  "Laticínios / Derivados": ["1 pote de manteiga"],
-  "Produtos de Limpeza": ["Limpa vidros para o carro"],
+    "1 pacote de café",
+    "3 kilos de açucar"
+  ],
+  "Legumes / Verduras": [
+    "4 cenouras"
+  ],
+  "Produtos de Limpeza": [
+    "2 panos de chao",
+    "2 panos de prato",
+    "1 rodo",
+    "papel higienico"
+  ]
 };
 
 let produtosMarcados = JSON.parse(localStorage.getItem("itensMarcados")) || [];
