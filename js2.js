@@ -1,5 +1,7 @@
 const categorias = {
   "Alimentos Básicos / Secos": [
+    //ALIMENTOS BÁSICOS MUDAR AQUI:
+
     "5 QUILOS DE AÇÚCAR",
     "3 QUILOS DE FEIJÃO",
     "2 QUILOS DE ÓLEO",
@@ -7,9 +9,11 @@ const categorias = {
     "1 PACOTE DE MANTEIGA",
     "2 CAIXAS DE MELITA 103",
     "MISTURA DA SEMANA",
-    "1 PÃO SALVADO",
+    "1 PÃO SOVADO",
   ],
   Hortifruti: [
+    //HORTIFRUTI MUDAR AQUI:
+
     "2 PÉS DE ALFACE",
     "1 MAÇO DE CENOURA",
     "1 PACOTE DE CEBOLA",
@@ -18,7 +22,10 @@ const categorias = {
     "1 MAÇO DE TOMATE GRANDE",
     "8 QUILOS DE BATATA",
   ],
-  Pet: ["1 PACOTE DE RAÇÃO"],
+  Pet:
+    //PET MUDAR AQUI:
+
+    ["1 PACOTE DE RAÇÃO"],
 };
 
 let produtosMarcados = JSON.parse(localStorage.getItem("itensMarcados")) || [];
