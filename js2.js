@@ -14,13 +14,13 @@ const categorias = {
   ],
 
   "MISTURA DA SEMANA": [
-    //ALIMENTOS BÁSICOS MUDAR AQUI:
+    //MISTURA DA SEMANA MUDAR AQUI
 
     "VARIADOS",
   ],
 
   OUTROS: [
-    //HORTIFRUTI MUDAR AQUI:
+    //OUTROS MUDAR AQUI
 
     "LAMPADAS RESERVAS",
   ],
