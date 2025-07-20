@@ -4,23 +4,36 @@ const categorias = {
 
     "5 QUILOS DE AÇÚCAR",
     "3 QUILOS DE FEIJÃO",
-    "2 QUILOS DE ÓLEO",
+    "2 LITROS DE ÓLEO",
     "2 QUILOS DE TRIGO",
     "1 PACOTE DE MANTEIGA",
     "2 CAIXAS DE MELITA 103",
-    "MISTURA DA SEMANA",
     "1 PÃO SOVADO",
+    "1 MASSA DE TOMATE",
+    "1 POTE DE ALHO",
   ],
+
+  "MISTURA DA SEMANA": [
+    //ALIMENTOS BÁSICOS MUDAR AQUI:
+
+    "VARIADOS",
+  ],
+
+  OUTROS: [
+    //HORTIFRUTI MUDAR AQUI:
+
+    "LAMPADAS RESERVAS",
+  ],
+
   Hortifruti: [
     //HORTIFRUTI MUDAR AQUI:
 
     "2 PÉS DE ALFACE",
-    "1 MAÇO DE CENOURA",
+    "3 CENOURA",
     "1 PACOTE DE CEBOLA",
     "1 PACOTE DE REPOLHO",
     "4 TOMATES",
-    "1 MAÇO DE TOMATE GRANDE",
-    "8 QUILOS DE BATATA",
+    "3 QUILOS DE BATATA",
   ],
   Pet:
     //PET MUDAR AQUI:
