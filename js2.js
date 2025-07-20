@@ -23,6 +23,7 @@ const categorias = {
     //OUTROS MUDAR AQUI
 
     "LAMPADAS RESERVAS",
+    "SABONETES BANHEIRO ROGERIO",
   ],
 
   Hortifruti: [
