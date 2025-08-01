@@ -1,45 +1,37 @@
 const categorias = {
-  "Alimentos Básicos / Secos": [
-    //ALIMENTOS BÁSICOS MUDAR AQUI:
+  "MISTURAS DA SEMANA": ["COXAS E SOBRECOXAS", "SALSICHAS", "LIGUIÇA"],
 
-    "5 QUILOS DE AÇÚCAR",
-    "3 QUILOS DE FEIJÃO",
-    "2 LITROS DE ÓLEO",
-    "2 QUILOS DE TRIGO",
-    "1 PACOTE DE MANTEIGA",
-    "2 CAIXAS DE MELITA 103",
-    "1 PÃO SOVADO",
-    "1 MASSA DE TOMATE",
+  PADARIA: [
+    "5 KILOS DE AÇUCAR",
+    "1 KILO DE CAFÉ",
+    "1 POTE DE MARGARINA",
+    "3 CAIXAS DE LEITE",
+  ],
+  "ALMOÇO OU JANTA": [
+    "2 PACOTES DE ARROZ",
+    "3 KILOS DE FEIJAO",
+    "1 KILO DE SAL",
     "1 POTE DE ALHO",
+    "3 LITROS DE OLEO",
+    "2 KILOS DE MACARRAO AVE MARIA",
+    "1 KILO DE MACARRAO CUMPRIDO",
+    "1 MASSA DE TOMATE",
+    "3 SAZON BRANCO",
+    "1 SAZON AMARELO",
+  ],
+  HORTIFRUTI: [
+    "3 KILOS DE BATATA",
+    "4 CENOURAS",
+    "5 TOMATES",
+    "3 ABOBRINHAS",
+    "1 KILO DE CEBOLA",
   ],
 
-  "MISTURA DA SEMANA": [
-    //MISTURA DA SEMANA MUDAR AQUI
+  " VARIADOS": ["1 KILO DE FARINHA DE MILHO", "2 LEITES CONDENSADOS"],
 
-    "VARIADOS",
-  ],
+  "PRODUTOS DE LIMPEZAS": ["2 DETERGENTES", "PAPEL HIGIENICO", "SABONETES"],
 
-  OUTROS: [
-    //OUTROS MUDAR AQUI
-
-    "LAMPADAS RESERVAS",
-    "SABONETES BANHEIRO ROGERIO",
-  ],
-
-  Hortifruti: [
-    //HORTIFRUTI MUDAR AQUI:
-
-    "2 PÉS DE ALFACE",
-    "3 CENOURA",
-    "1 PACOTE DE CEBOLA",
-    "1 PACOTE DE REPOLHO",
-    "4 TOMATES",
-    "3 QUILOS DE BATATA",
-  ],
-  Pet:
-    //PET MUDAR AQUI:
-
-    ["1 PACOTE DE RAÇÃO"],
+  OUTROS: ["GAS DE COZINHA", "RAÇÃO"],
 };
 
 let produtosMarcados = JSON.parse(localStorage.getItem("itensMarcados")) || [];
